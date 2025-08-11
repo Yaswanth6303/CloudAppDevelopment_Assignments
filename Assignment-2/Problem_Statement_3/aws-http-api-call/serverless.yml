@@ -1,0 +1,23 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: cadassignments2025
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: aws-http-api-call
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: ap-south-1
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - httpApi:
+          path: /
+          method: get
+  reverse:
+    handler: reverse-handler.reverse
+    events:
+      - httpApi:
+          path: /reverse
+          method: post
