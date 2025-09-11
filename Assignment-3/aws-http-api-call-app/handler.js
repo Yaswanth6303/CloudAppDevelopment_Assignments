@@ -6,7 +6,6 @@ module.exports.reverse = async (event, context) => {
   try {
     requestBody = event.body ? JSON.parse(event.body) : {};
   } catch (err) {
-    // Malformed JSON – return a 400 error
     return {
       statusCode: 400,
       headers: { "Content-Type": "application/json" },
